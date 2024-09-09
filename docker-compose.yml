@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: docker.arvancloud.ir/cybertec/pgwatch2-postgres:1.13
+    ports:
+      - "5432:5432"
+      - "3000:3000"
+      - "8081:8081"
+      - "8080:8080"
+    volumes:
+      - ./postgres://var/lib/postgresql
+      - ./grafana:/var/lib/grafana
+      - ./pgwatch2:/pgwatch2/persistent-config
+    network_mode: "host"
+#    env_file:
+#      - ./.env
